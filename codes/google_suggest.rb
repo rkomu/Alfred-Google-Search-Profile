@@ -14,6 +14,14 @@ end
 
 Script_filter_items = Results.each_with_object([]) { |result, array|
   array.push(
+    title: ARGV[0],
+    subtitle: "Search “#{ARGV[0]}” on Google",
+    arg: ARGV[0]
+  )
+}
+
+Script_filter_items = Results.each_with_object([]) { |result, array|
+  array.push(
     title: result,
     subtitle: "Search “#{result}” on Google",
     arg: result

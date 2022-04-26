@@ -8,7 +8,7 @@ Query_url = "https://suggestqueries.google.com/complete/search?output=firefox&q=
 Results = JSON.parse(Net::HTTP.get(URI.parse(Query_url)))[1] 
 
 if Results.empty?
-  puts({ items: [{ title: 'No suggestions found', subtitle: 'Try searching something else', valid: false }] }.to_json)
+  puts({ items: [{ title: 'No suggestions found', subtitle: 'Try searching something else', valid: false },{ title: ARGV[0], subtitle: "Search “#{ARGV[0]}” on Google", arg: ARGV[0] }] }.to_json)
   exit 0
 end
 

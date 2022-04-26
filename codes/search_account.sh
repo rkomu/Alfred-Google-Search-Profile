@@ -4,7 +4,7 @@ current_dir=${PWD}
 # echo ${current_dir}
 cd /Users/*/Library/Application\ Support/Google/Chrome
 # grep -o --include='Preferences' '"last_list_accounts_data":"\[\\"gaia.l.a.r\\",\[\[\\"gaia.l.a\\",1,\\".*\\",\\".*\\",\\"https:' -r ./
-grep -o --include='Preferences' '"last_list_accounts_data":"\[\\"gaia.l.a.r\\",\[\[\\"gaia.l.a\\",1,\\".*\\",\\".*\\",\\"https:' -r ./ > "$current_dir"/accounts.txt
+grep -o --include='Preferences' '"last_list_accounts_data":"\[\\"gaia.l.a.r\\",\[\[\\"gaia.l.a\\",1,\\".*\\",\\".*\\",\\"https://lh3.googleusercontent' -r ./ > "$current_dir"/accounts.txt
 # cat ${current_dir}/accounts.txt
 
 
@@ -31,8 +31,8 @@ while read -r line; do
 # reading each line
 
     profile_file=$(echo ${line} | sed -nE 's+\.\/\/(.*)\/Preferences:.*+\1+p')
-    profile_name=$(echo ${line}  | sed -nE 's+.*1,\\"(.*)\\",\\".*\\",\\"https:+\1+p')
-    profile_email=$(echo ${line}  | sed -nE 's+.*1,\\".*\\",\\"(.*)\\",\\"https:+\1+p')
+    profile_name=$(echo ${line}  | sed -nE 's+.*1,\\"(.*)\\",\\".*\\",\\"https://lh3.googleusercontent+\1+p')
+    profile_email=$(echo ${line}  | sed -nE 's+.*1,\\".*\\",\\"(.*)\\",\\"https://lh3.googleusercontent+\1+p')
 
     # profile_file=$(echo ${profile_file} | sed 's/ /\\\\ /g')
 
